@@ -1,0 +1,13 @@
+<td ng-bind="$index+1"></td>
+<td><img style="width: 100%;" ng-src="{{item.img}}"></td>
+<td ng-bind="item.title"></td>
+<td ng-bind="item|Article:'type'"></td>
+<td ng-bind="item.author"></td>
+<td ng-bind="item.createAt|date:'yyyy-MM-dd HH:mm:ss'"></td>
+<td ng-bind="item.updateAt|date:'yyyy-MM-dd HH:mm:ss'"></td>
+<td ng-bind="item|Article:'status'"></td>
+<td><a ui-sref="field.articleDetail({id:item.id})" ng-if="edit">编辑</a>　<a data-toggle="modal" style="color:red"
+                                                                          data-target="#myModal"
+                                                                          ng-click="chioce(item,6)">{{item|ArChangeStatus}}</a>　<a
+        class="a-danger" data-toggle="modal" data-target="#myModal" ng-click="chioce(item,7)" ng-if="del">删除</a></td>
+

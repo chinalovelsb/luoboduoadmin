@@ -1,0 +1,55 @@
+<form class="stat-widget   block  col-md-12 rest-pd-lr pd-t  ">
+    <div class="form-group col-md-4 flex-wrap">
+        <label class="">公司名称</label>
+        <div class="col-xs-11">
+            <input type="text" class="form-control" ng-model="vm.profession.companyName">
+        </div>
+
+    </div>
+    <div class="form-group col-md-4 flex-wrap">
+        <label>职位名称</label>
+        <div class="col-xs-11">
+            <input type="text" class="form-control " ng-model="vm.profession.name">
+        </div>
+    </div>
+    <pro-type category="vm.profession.category" sub-category="vm.profession.subCategory" class="col-md-4"
+              option-class="col-xs-11"></pro-type>
+
+    <picker select-name="学历要求" options='vm.ProfessionConstant.education' ng-model="vm.profession.education"
+            class="col-md-4"
+            option-class="col-xs-11"></picker>
+    <picker select-name="工作经验" options='vm.ProfessionConstant.experience' ng-model="vm.profession.experience"
+            class="col-md-4"
+            option-class="col-xs-11"></picker>
+    <picker select-name="薪　　资" options='vm.ProfessionConstant.compensation' ng-model="vm.profession.compensation"
+            class="col-md-4"
+            option-class="col-xs-11"></picker>
+    <picker select-name="状　　态" options='vm.ProfessionConstant.status' ng-model="vm.profession.status" class="col-md-4"
+            option-class="col-xs-11"></picker>
+    <!--时间选择-->
+    <time-picker start-at="vm.profession.startAt" end-at="vm.profession.endAt" clear="vm.clear" label-name="发布时间"
+                 class="col-md-8"></time-picker>
+    <!--end-->
+    <div class="col-md-12 search-btn text-right">
+        <button type="button" class="btn btn-danger" ng-click="vm.clean()">清空</button>
+        <button type="button" class="btn btn-success" ng-click="vm.professionFn().search()">搜索</button>
+    </div>
+</form>
+
+<div class="panel panel-default col-md-12 rest-pd-lr" permissions>
+    <div class="panel-heading btn-group-xs">
+        <span ng-if='vm.companyId'>{{vm.companyName}}在招</span>职位列表
+        <button class="btn btn-danger pull-right" ui-sref="field.professionDetail({companyId:vm.companyId})"
+                ng-if="vm.companyId&&create">+新增
+        </button>
+    </div>
+    <div class="panel-body">
+        <!--列表 -->
+        <list-table table-title="vm.ProfessionConstant.tabelTitle" template-url='vm.templateUrl'
+                    list-data="vm.professionList" control="vm.professionFn()" page="vm.currentPage"></list-table>
+        <!--分页-->
+        <paging total-items="vm.totalItems" current-page="vm.currentPage" max-Size="5" items-per-page="10"
+                page-change="vm.pageChange()"></paging>
+
+    </div>
+</div>

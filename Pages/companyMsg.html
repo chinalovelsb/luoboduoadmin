@@ -1,0 +1,49 @@
+<form class="stat-widget   block  col-md-12 rest-pd-lr pd-t  ">
+    <div class="form-group col-md-3 flex-wrap">
+        <label class="">公司名称</label>
+        <div class="col-xs-11">
+            <input type="text" class="form-control" ng-model="vm.company.name">
+        </div>
+
+    </div>
+    <div class="form-group col-md-3 flex-wrap">
+        <label>产品名称</label>
+        <div class="col-xs-11">
+            <input type="text" class="form-control " ng-model="vm.company.product">
+        </div>
+
+    </div>
+
+    <picker select-name="公司行业" options='vm.CompanyConstant.Industry' ng-model="vm.company.industry" class="col-md-3"
+            option-class="col-xs-11"></picker>
+    <picker select-name="融资规模" options='vm.CompanyConstant.Financing' ng-model="vm.company.financing" class="col-md-3"
+            option-class="col-xs-11"></picker>
+    <picker select-name="认证状态" options='vm.CompanyConstant.Approved' ng-model="vm.company.approved" class="col-md-3"
+            option-class="col-xs-11"></picker>
+    <picker select-name="冻结状态" options='vm.CompanyConstant.Freezed' ng-model="vm.company.freezed" class="col-md-3"
+            option-class="col-xs-11"></picker>
+    <linkage pro='vm.company.province' city='vm.company.city' county='vm.company.county' class="col-md-6"
+             label-name="地区"></linkage>
+
+
+    <div class="col-md-12 search-btn text-right">
+        <button class="btn btn-danger" ng-click="vm.clean()">清空</button>
+        <button class="btn btn-success" ng-click="vm.search()">搜索</button>
+    </div>
+</form>
+
+<div class="panel panel-default col-md-12 rest-pd-lr" permissions>
+    <div class="panel-heading btn-group-xs">
+        公司列表
+        <button class="btn btn-danger pull-right" ui-sref="field.companyDetail" ng-if="create">+新增</button>
+    </div>
+    <div class="panel-body">
+        <!--列表-->
+        <list-table table-title="vm.title" template-url='vm.templateUrl' list-data="vm.companyList"
+                    control="vm.companyFn()" page="vm.currentPage"></list-table>
+        <!--分页-->
+        <paging total-items="vm.totalItems" current-page="vm.currentPage" max-size="5" items-per-page="10"
+                page-change="vm.pageChanged()"></paging>
+
+    </div>
+</div>

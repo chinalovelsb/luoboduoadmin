@@ -1,0 +1,52 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        角色编辑
+    </div>
+    <div class="panel panel-body">
+        <form class="stat-widget   block  col-md-12 rest-pd-lr pd-t " name="role" autocomplete="off">
+
+            <div class="form-group col-md-9 col-md-offset-1 flex-wrap">
+                <label class="col-xs-2 text-right rest-pd-lr">角色名</label>
+                <div class="col-xs-10">
+                    <input type="text" class="form-control " name="name" ng-model="vm.name" required>
+                </div>
+
+            </div>
+            <div class="form-group col-md-9 col-md-offset-1">
+                <b class="col-xs-2 text-right rest-pd-lr">权限</b>
+                <div class="col-xs-10">
+                    <label class="checkbox-inline">
+                        <input type="checkbox" ng-model="all"> 全选/全不选
+                    </label>
+                </div>
+            </div>
+            <div class="form-group col-md-9 rest-pd-lr col-xs-offset-3 row" ng-repeat="items in vm.moduleList">
+                <div class=" col-xs-">
+
+                    <label class="checkbox-inline">
+                        <input type="checkbox" name={{items.id}} ng-checked="all" ng-model="moduleChecked">
+                        {{items.name}}
+                    </label>
+                    <div class="col-xs-12 " ng-repeat="item in items.moduleList">
+                        <div class="col-xs-offset-1 col-xs-3">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="{{item.id}}" ng-checked="moduleChecked"
+                                       ng-model="childNote[item.id]"> {{item.name}}
+
+                            </label>
+                        </div>
+                        <checkedbox ng-model="vm.role[item.id]" module-checked="moduleChecked"
+                                    child-node-true="childNote[item.id]" is-checked="isChecked" ng-click="test()"
+                                    it-name="item.id" selecte-all="all"></checkedbox>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-12 search-btn text-center">
+                <button type="button" class="btn btn-danger" ng-click="vm.saveChange()">保存</button>
+                <button type="button" class="btn btn-default" ng-click="vm.cencel()">取消</button>
+            </div>
+        </form>
+    </div>
+</div>

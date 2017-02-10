@@ -1,0 +1,16 @@
+<form class="form-group  flex-wrap " name="{{formName}}">
+    <label>{{selectName}}</label>
+    <div class="{{optionClass}}" style="position: relative">
+        <select class="form-control" name="name" ng-model="selectedValue"
+                ng-options="item.type as item.name for item in options"
+                ng-class="{'error':company.name.$invalid&&company.name.$touched}" ng-required='{{required}}'></select>
+        <div ng-if="show" class="industry col-xs-11 col-xs-offset-1 btn-group-xs">
+            <button class="btn btn-danger" ng-click="msgCollapsed = !msgCollapsed;change()">{{text}}</button>
+            <div uib-collapse="msgCollapsed">
+                <span class="label label-primary tag" ng-repeat="item in selectedList|industry track by $index">{{item}}<span
+                        class="close-icon" ng-click="removeItem($index)">x</span></span>
+            </div>
+        </div>
+    </div>
+
+</form>

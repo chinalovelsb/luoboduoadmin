@@ -1,0 +1,43 @@
+<div class="navbar">
+    <div class="navbar-inner row">
+        <ul class="nav pull-right nav-height">
+            <li><a ng-bind="role"></a></li>
+            <li><a ng-bind="manager"></a></li>
+            <li id="fat-menu" class="dropdown">
+                <a role="button" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="icon-user"></i> {{}}
+                    <i class="icon-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a tabindex="-1" href="#">我的账号</a></li>
+                    <li class="divider"></li>
+                    <li><a tabindex="-1" class="visible-phone" href="#">设置</a></li>
+                    <li class="divider visible-phone"></li>
+                    <li><a tabindex="-1" href="sign-in.html">退出</a></li>
+                </ul>
+            </li>
+            <li><a class="hidden-phone visible-tablet visible-desktop" ng-click="logout()" role="button">注销</a></li>
+        </ul>
+        <a class="brand" href="index.html"><span class="first"></span> <span class="second">萝卜多后台管理系统</span></a>
+    </div>
+</div>
+
+<div class="sidebar-nav ">
+    <a ui-sref="field.welcome" class="nav-header"><i class="icon-briefcase"></i>欢迎页</a>
+    <div ng-repeat="sides in vm.sideBar|orderBy:'createBy'">
+        <a class="nav-header" ng-click="msgCollapsed = !msgCollapsed"><i class="icon-dashboard"></i>{{sides.name}}<i
+                class="icon-chevron-down pull-right"></i></a>
+        <ul class="nav nav-list text-center" ui-sref-active="in" uib-collapse="msgCollapsed">
+            <li ui-sref-active="active" ng-repeat="side in sides.moduleList"><a
+                    ui-sref='{{side.url}}'>{{side.name}}</a></li>
+        </ul>
+    </div>
+</div>
+<div class="content">
+    <div class="container-fluid">
+        <div class="row-fluid" ui-view=''></div>
+        <footer>
+            <hr>
+        </footer>
+    </div>
+</div>

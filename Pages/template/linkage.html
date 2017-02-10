@@ -1,0 +1,17 @@
+<form class="{{class}} flex-wrap form-group" name="{{formName}}">
+    <label>{{labelName}}</label>
+    <div class=" flex-wrap col-xs-10">
+        <label for="pro" class="sr-only"></label>
+        <select name="pro" id="pro" class="form-control" data-ng-model="pro"
+                ng-options="prov.ProID as prov.ProName for prov in PROVINCE"
+                ng-class="{'error':company.pro.$invalid&&company.pro.$touched}" required></select>－
+        <label for="city" class="sr-only"></label>
+        <select name="city" id="city" class="form-control" data-ng-model="city"
+                ng-options="cityv.CityID as cityv.CityName for cityv in CITY"
+                ng-class="{'error':company.city.$invalid&&company.pro.$touched}" required></select>－
+        <label for="county" class="sr-only"></label>
+        <select name="county" id="county" class="form-control" data-ng-model="county"
+                ng-options="countyv.Id as countyv.countyName for countyv in COUNTY"
+                ng-class="{'error':company.county.$invalid&&company.pro.$touched}" required></select>
+    </div>
+</form>

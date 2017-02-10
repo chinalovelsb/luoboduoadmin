@@ -1,0 +1,12 @@
+<td ng-bind="item.id"></td>
+<td ng-bind="item.name"></td>
+<td ng-bind="item.roleName"></td>
+<td ng-bind="item.createByName"></td>
+<td ng-bind="item.createAt|date:'yyyy-MM-dd HH:mm:ss'"></td>
+<td ng-bind="item.updateBy"></td>
+<td ng-bind="item.updateAt|date:'yyyy-MM-dd HH:mm:ss'"></td>
+<td><a ui-sref="field.managerDetail({id:item.id})" ng-if="edit">编辑</a>　<a class="a-danger" data-toggle="modal"
+                                                                          data-target="#myModal"
+                                                                          ng-click="chioce(item,8)" ng-if="del">删除</a>
+</td>
+

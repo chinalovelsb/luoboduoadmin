@@ -1,0 +1,30 @@
+<div>
+
+    <table class="table border text-center" permissions>
+        <tr class="active">
+            <th ng-repeat='item in title track by $index' ng-class="{'col-xs-3':Num===$index}">{{item}}</th>
+        </tr>
+        <!--插入模板-->
+        <tr ng-repeat="item in listData " ng-include="templateUrl"></tr>
+    </table>
+
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">操作提示</h4>
+                </div>
+                <div class="modal-body text-center">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" ng-click="submitData(fn,n)">提交更改</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

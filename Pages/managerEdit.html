@@ -1,0 +1,59 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        账户管理
+    </div>
+    <div class="panel panel-body">
+        <form class="stat-widget   block  col-md-12 rest-pd-lr pd-t " name="manager" autocomplete="off">
+
+            <div class="form-group col-md-6 col-md-offset-3 flex-wrap">
+                <label class="col-xs-2 text-right rest-pd-lr">登录名</label>
+                <div class="col-xs-10">
+                    <input type="text" class="form-control " name="name" ng-model="vm.managerDetail.name" required>
+                </div>
+
+            </div>
+            <div class="form-group col-md-6 col-md-offset-3 flex-wrap">
+                <label class="col-xs-2 text-right rest-pd-lr">手机号码</label>
+                <div class="col-xs-10">
+                    <input type="number" class="form-control " name="phone" ng-minlength="11" ng-maxlength="11"
+                           ng-model="vm.managerDetail.phone" ng-disabled="vm.id">
+                    <span ng-show="manager.phone.$touched&&manager.phone.$invalid">请输入11位手机号</span>
+                </div>
+
+            </div>
+
+            <div class="form-group col-md-6 col-md-offset-3 flex-wrap">
+                <label class="col-xs-2 text-right rest-pd-lr">密码</label>
+                <div class="col-xs-10">
+                    <input type="password" class="form-control " name="pwd1" ng-model="vm.managerDetail.pwd"
+                           ng-minlength="6" required>
+                    <span ng-show="manager.pwd1.$touched&&manager.pwd1.$invalid">请输入6位密码</span>
+                </div>
+            </div>
+
+            <div class="form-group col-md-6 col-md-offset-3 flex-wrap">
+                <label class="col-xs-2 text-right rest-pd-lr">密码确认</label>
+                <div class="col-xs-10">
+                    <input type="password" class="form-control " name="pwd2" ng-model="vm.newPwd" ng-minlength="6"
+                           required>
+                    <span ng-show="vm.checkPwd&&vm.managerDatail.pwd!==vm.newPwd||manager.pwd2.$touched&&manager.pwd2.$invalid">两次密码输入不一致</span>
+                </div>
+            </div>
+
+            <div class="form-group col-md-6 col-md-offset-3 flex-wrap">
+                <label class="col-xs-2 text-right rest-pd-lr">用户组</label>
+                <div class="col-xs-10">
+                    <select ng-options="item.id as item.name for item in vm.roleList" ng-model="vm.roleID" name="user"
+                            class="form-control " required>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-12 search-btn text-center">
+                <button type="button" class="btn btn-danger" ng-click="vm.saveChange()"
+                        ng-disabled="manager.$invalid||(!vm.id&&!manager.phone)">保存
+                </button>
+                <button type="button" class="btn btn-default" ui-sref="field.manager">取消</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,6 @@
+<td ng-bind="item.id"></td>
+<td ng-bind="item.name"></td>
+<td><a ui-sref="field.roleDetail({id:item.id})" ng-if="edit">编辑</a>　<a class="a-danger" data-toggle="modal"
+                                                                       data-target="#myModal" ng-click="chioce(item,10)"
+                                                                       ng-if="del">删除</a></td>
+

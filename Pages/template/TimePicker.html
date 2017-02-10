@@ -1,0 +1,24 @@
+<form class="{{class}} form-group form-inline flex-wrap">
+    <label>{{labelName}}</label>
+    <div class="col-md-11">
+        <div class="input-group col-md-5 col-sm-5">
+            <input type="text" class="form-control" uib-datepicker-popup ng-model="start" is-open="openedStart"
+                   datepicker-options="dateOptions" type="datetime-local" close-text="关闭" clear-text="清除"
+                   current-text="今天"/>
+            <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="openSt()"><i
+                    class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+        </div>
+        <span>-</span>
+        <div class="input-group col-md-5 col-sm-5">
+            <input type="text" class="form-control" uib-datepicker-popup ng-model="end" is-open="openedEnd"
+                   datepicker-options="dateOptions2" close-text="关闭" clear-text="清除" current-text="今天"/>
+            <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="openEnd()"><i
+                    class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+        </div>
+    </div>
+
+</form>

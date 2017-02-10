@@ -1,0 +1,37 @@
+<form class="stat-widget   block  col-md-12 rest-pd-lr pd-t  " ng-if="vm.manager">
+
+    <div class="form-group  flex-wrap col-md-4 col-md-offset-2">
+        <label>用户组</label>
+        <div class="col-xs-11">
+            <select ng-options="item.id as item.name for item in vm.roleList" ng-model="vm.ids" class="form-control ">
+                <options value=''>全部</options>
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group col-md-4  flex-wrap">
+        <label>用户名</label>
+        <div class="col-xs-11">
+            <input type="text" class="form-control " ng-model="vm.managerDetail.name">
+        </div>
+
+    </div>
+    <div class="col-md-12 search-btn text-right">
+        <button class="btn btn-danger" ng-click="vm.clean()">清空</button>
+        <button class="btn btn-success" ng-click="vm.search()">搜索</button>
+    </div>
+</form>
+<div class="panel panel-default col-md-12 rest-pd-lr" permissions>
+    <div class="panel-heading btn-group-xs">
+        <span ng-if="vm.role">角色列表</span><span ng-if="vm.manager">账户管理</span><span ng-if="vm.module">模块管理</span>
+        <button class="btn btn-danger pull-right" style="margin-left: 10px" ng-click="vm.add()" ng-if="create">+新增<span
+                ng-if="vm.role">角色</span></button>
+    </div>
+    <div class="panel-body">
+        <!--列表 -->
+        <list-table table-title="vm.tabelTitle" template-url='vm.templateUrl' list-data="vm.dataList"
+                    control="vm.DataFn()" page="vm.currentPage" o-num="0"></list-table>
+        <paging total-items="vm.totalItems" current-page="vm.currentPage" max-Size="5" items-per-page="10"
+                page-change="vm.pageChange()"></paging>
+    </div>
+</div>

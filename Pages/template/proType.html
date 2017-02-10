@@ -1,0 +1,13 @@
+<form class="{{class}} flex-wrap form-group" name="{{formName}}">
+    <label>职位类型</label>
+    <div class=" flex-wrap {{optionClass}}">
+        <label for="category" class="sr-only"></label>
+        <select name="category" id="category" class="form-control" data-ng-model="category"
+                ng-options="item.type as item.name for item in CATEGORY"
+                ng-class="{'error':company.pro.$invalid&&company.pro.$touched}" required></select>-
+        <label for="subCategory" class="sr-only"></label>
+        <select name="subCategory" id="subCategory" class="form-control" data-ng-model="subCategory"
+                ng-options="item.type as item.name for item in SUBCATEGORY"
+                ng-class="{'error':company.city.$invalid&&company.pro.$touched}" required></select>
+    </div>
+</form>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptLibraryMappings">
+    <file url="file://$PROJECT_DIR$/Pages/admin.html" libraries="{angular}" />
+    <file url="file://$PROJECT_DIR$/Pages/articleEdit.html" libraries="{angular}" />
+    <file url="file://$PROJECT_DIR$/Pages/companyEdit.html" libraries="{angular, angular-ui-router}" />
+    <file url="file://$PROJECT_DIR$/Pages/companyMsg.html" libraries="{angular, ui-bootstrap-tpls}" />
+    <file url="file://$PROJECT_DIR$/Pages/roleDetail.html" libraries="{angular, angular-ui-router}" />
+    <file url="file://$PROJECT_DIR$/Pages/template/companyList.html" libraries="{angular, angular-ui-router}" />
+    <file url="file://$PROJECT_DIR$/Pages/template/linkage.html" libraries="{angular, angular-ui-router}" />
+    <file url="file://$PROJECT_DIR$/Pages/template/manager.html" libraries="{angular}" />
+    <file url="file://$PROJECT_DIR$/Pages/template/table.html" libraries="{angular}" />
+    <file url="file://$PROJECT_DIR$/Pages/template/tag.html" libraries="{angular}" />
+    <file url="file://$PROJECT_DIR$/index.html" libraries="{angular, angular-ui-router, ocLazyLoad}" />
+    <file url="file://$PROJECT_DIR$/js/appRouter/approuter.js" libraries="{angular, angular-ui-router}" />
+    <file url="file://$PROJECT_DIR$/js/constant/constant.js" libraries="{angular}" />
+    <file url="file://$PROJECT_DIR$/js/constant/siteconstant.js" libraries="{angular}" />
+    <file url="file://$PROJECT_DIR$/js/controller/controller.js" libraries="{angular, angular-DefinitelyTyped, angular-ui-router}" />
+    <file url="file://$PROJECT_DIR$/js/directive/directive.js" libraries="{angular, angular-ui-router, jquery}" />
+    <file url="file://$PROJECT_DIR$/js/filters/filters.js" libraries="{angular}" />
+    <file url="file://$PROJECT_DIR$/js/service/service.js" libraries="{angular}" />
+    <file url="PROJECT" libraries="{angular-cookie, angular-cookies}" />
+  </component>
+</project>

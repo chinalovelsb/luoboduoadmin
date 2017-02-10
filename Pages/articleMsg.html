@@ -1,0 +1,47 @@
+<form class="stat-widget   block  col-md-12 rest-pd-lr pd-t  ">
+    <div class="form-group col-md-3 flex-wrap">
+        <label class="">标　　题</label>
+        <div class="col-xs-11">
+            <input type="text" class="form-control" ng-model="vm.article.title">
+        </div>
+
+    </div>
+    <div class="form-group col-md-3 flex-wrap">
+        <label>创建者</label>
+        <div class="col-xs-11">
+            <input type="text" class="form-control " ng-model="vm.article.author">
+        </div>
+    </div>
+
+    <picker select-name="状　　态" options='vm.ArticleConstant.status' ng-model="vm.article.status" class="col-md-3"
+            option-class="col-xs-11"></picker>
+    <picker select-name="类　　型" options='vm.ArticleConstant.type' ng-model="vm.article.type" class="col-md-3"
+            option-class="col-xs-11"></picker>
+    <time-picker start-at="vm.article.startAt" end-at="vm.article.endAt" clear="vm.clear" label-name="创建时间"
+                 class="col-md-6"></time-picker>
+
+
+    <div class="col-md-12 search-btn text-right">
+        <button type="button" class="btn btn-danger" ng-click="vm.clean()">清空</button>
+        <button type="button" class="btn btn-success" ng-click="vm.articleFn().search()">搜索</button>
+    </div>
+</form>
+
+<div class="panel panel-default col-md-12 rest-pd-lr" permissions>
+    <div class="panel-heading btn-group-xs">
+        Article管理
+        <button class="btn btn-danger pull-right" style="margin-left: 10px" ui-sref="field.articleDetail"
+                ng-if="create">+新增
+        </button>
+        <button class="btn btn-danger pull-right" ng-if="vm.sort">保存排序</button>
+    </div>
+    <div class="panel-body">
+        <!--列表 -->
+        <list-table table-title="vm.ArticleConstant.tabelTitle" template-url='vm.templateUrl' list-data="vm.articleList"
+                    control="vm.articleFn()" page="vm.currentPage"></list-table>
+
+        <paging total-items="vm.totalItems" current-page="vm.currentPage" max-Size="5" items-per-page="10"
+                page-change="vm.pageChange()"></paging>
+
+    </div>
+</div>

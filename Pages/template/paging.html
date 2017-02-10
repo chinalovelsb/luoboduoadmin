@@ -1,0 +1,12 @@
+<div class="text-right">
+    <ul uib-pagination boundary-links='true' first-text='首页' last-text='末页' previous-text='<' next-text='>'
+        total-items="totalItems" ng-model="currentPage" max-size="5"
+        class="pagination-sm" boundary-link-numbers="false" rotate="false" items-per-page="{{itemsPerPage}}"
+        num-pages="numPages"
+        force-ellipses=true ng-change="pagechanged()">
+    </ul>
+    <div class="jump">去第<input type="number" ng-model="pageNo">页
+        <button type="button" class="btn" ng-click="setPage()">确定</button>
+    </div>
+
+</div>

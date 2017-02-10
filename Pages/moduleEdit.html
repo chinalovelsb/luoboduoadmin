@@ -1,0 +1,46 @@
+<div class="panel panel-default">
+    <div class="panel-heading" ng-bind="vm.id?'模块编辑':'模块新增'"></div>
+    <div class="panel panel-body">
+        <form class="stat-widget block col-md-12 rest-pd-lr pd-t" name="moduleForm" autocomplete="off">
+
+            <div class="form-group col-md-6 col-md-offset-3 flex-wrap">
+                <label>模块名称</label>
+                <div class="col-xs-10">
+                    <input type="text" class="form-control " name="name" ng-model="vm.module.name" required>
+                </div>
+            </div>
+
+            <div class="form-group col-md-6 col-md-offset-3 flex-wrap">
+                <label>MenuId</label>
+                <div class="col-xs-10">
+                    <input type="text" class="form-control " name="MenuId" ng-model="vm.module.menuID">
+                </div>
+            </div>
+
+            <div class="form-group col-md-6 col-md-offset-3 flex-wrap">
+                <label>URL地址</label>
+                <div class="col-xs-10">
+                    <input type="text" class="form-control " name="url" ng-model="vm.module.url">
+                </div>
+            </div>
+            <div class="form-group col-md-6 col-md-offset-3 flex-wrap">
+                <label>父模块ID</label>
+                <div class="col-xs-10">
+                    <input type="text" class="form-control " name="parentID" ng-model="vm.module.parentID" required>
+                </div>
+            </div>
+            <div class="form-group col-md-6 col-md-offset-3 flex-wrap">
+                <label>模块类别</label>
+                <div class="col-xs-10">
+                    <input type="text" class="form-control " name="type" ng-model="vm.module.type">
+                </div>
+            </div>
+            <div class="col-md-12 search-btn text-center">
+                <button type="button" class="btn btn-danger" ng-click="vm.saveChange()"
+                        ng-disabled="moduleForm.$invalid">保存
+                </button>
+                <button type="button" class="btn btn-default" ui-sref="field.module">取消</button>
+            </div>
+        </form>
+    </div>
+</div>
