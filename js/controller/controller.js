@@ -21,7 +21,7 @@ function LoginController(getData, $state, $cookieStore, LocalStorage) {
                 //登录用户信息
                 $cookieStore.put('user', res.data, {expirse: new Date().getDate() + 1});
                 //用户模块权限
-                LocalStorage.get('permissions') ? '' : getData.role(res.data.role.id).then(function (res) {
+                LocalStorage.get('permissions') ? $state.go('field.welcome') : getData.role(res.data.role.id).then(function (res) {
                         LocalStorage.set('permissions', res.data.role.permissionsSet);
                         $state.go('field.welcome')
                     })
